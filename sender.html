@@ -1,0 +1,34 @@
+<html>
+	<body>
+		
+		
+    	<form action="">
+      		<input id="m" autocomplete="off" /><button>Send</button>
+    	</form>
+
+    	<ul id="messages"></ul>
+
+
+		<!-- 
+		<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		-->
+
+		<script src="jquery.js"></script>
+		<script src="socket.js"></script>
+
+		<script>
+			var socket = io.connect('http://localhost:3000');
+
+			$('form').submit(function(){
+				$('#messages').append($('<li>').text($('#m').val()));
+    			socket.emit('sending', $('#m').val());
+    			$('#m').val('');
+    			return false;
+ 			 });
+		</script>
+
+    
+	</body>
+
+</html>

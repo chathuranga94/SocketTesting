@@ -1,0 +1,22 @@
+<html>
+	<body>
+		<ul id="messages"></ul>
+	</body>
+
+	<script src="jquery.js"></script>
+	<script src="socket.js"></script>
+
+	<script>
+
+		var socket = io.connect('http://localhost:3000');
+
+		socket.on('recieve', function(msg){
+    		$('#messages').append($('<li>').text(msg));
+  		});
+  		
+	</script>
+
+
+
+
+</html>
